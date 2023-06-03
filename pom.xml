@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>spring-boot-posiljke-api</artifactId>
+    <artifactId>spring-boot-package-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-posiljke-api</name>
     <description>spring-boot-posiljke-api</description>

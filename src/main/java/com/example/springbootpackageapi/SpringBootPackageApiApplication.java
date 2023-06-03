@@ -1,13 +1,13 @@
-package com.example.springbootposiljkeapi;
+package com.example.springbootpackageapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootPosiljkeApiApplication {
+public class SpringBootPackageApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootPosiljkeApiApplication.class, args);
+        SpringApplication.run(SpringBootPackageApiApplication.class, args);
     }
 
 }
