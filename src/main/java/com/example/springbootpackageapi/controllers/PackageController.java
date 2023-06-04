@@ -50,7 +50,6 @@ public class PackageController {
             @RequestParam(required = false) String deliveryDateTo,
             @RequestParam(required = false) String deliveryAddress,
             @RequestParam(required = false) String billingAddress,
-            @RequestParam(required = false) String email,
             @RequestParam(required = false) String orderStatus
     ) {
         return packageService.getPackages(
@@ -61,8 +60,7 @@ public class PackageController {
                 deliveryDateFrom,
                 deliveryDateTo,
                 deliveryAddress,
-                billingAddress,
-                email)
+                billingAddress)
                 .toResponseEntity();
     }
 

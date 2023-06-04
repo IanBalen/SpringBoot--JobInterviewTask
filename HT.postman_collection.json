@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\" : \"Milorad\",\r\n    \"lastName\" : \"Stjepanovic\",\r\n    \"email\": \"stjepanovic1milorad@gmail.com\",\r\n    \"address\" : \"Belvedere 21\"\r\n}",
+					"raw": "{\r\n    \"firstName\" : \"Milorad\",\r\n    \"lastName\" : \"Stjepanović\",\r\n    \"email\": \"stjepanovic1milorad@gmail.com\",\r\n    \"address\" : \"Belvedere 21\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -109,7 +109,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/packages?orderDate=2023-05-31",
+					"raw": "http://localhost:8080/packages?orderDateFrom=2023-05-31&deliveryAddress=Riječka ulica",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -125,8 +125,37 @@
 							"disabled": true
 						},
 						{
-							"key": "orderDate",
+							"key": "orderDateFrom",
 							"value": "2023-05-31"
+						},
+						{
+							"key": "orderDateTo",
+							"value": "2023-06-01",
+							"disabled": true
+						},
+						{
+							"key": "deliveryDateFrom",
+							"value": "2023-05-30",
+							"disabled": true
+						},
+						{
+							"key": "deliveryDateTo",
+							"value": "2023-06-06",
+							"disabled": true
+						},
+						{
+							"key": "deliveryAddress",
+							"value": "Riječka ulica"
+						},
+						{
+							"key": "billingAddress",
+							"value": "Ilica 25",
+							"disabled": true
+						},
+						{
+							"key": "orderStatus",
+							"value": "Shipped",
+							"disabled": true
 						}
 					]
 				}

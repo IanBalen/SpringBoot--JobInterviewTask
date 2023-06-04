@@ -111,8 +111,7 @@ public class PackageService {
                                                  String deliveryDateFrom,
                                                  String deliveryDateTo,
                                                  String deliveryAddress,
-                                                 String billingAddress,
-                                                 String email
+                                                 String billingAddress
     ) {
 
        boolean hasName = !Objects.isNull(name);
@@ -123,7 +122,6 @@ public class PackageService {
        boolean hasDeliveryDateTo = !Objects.isNull(deliveryDateTo);
        boolean hasDeliveryAddress = !Objects.isNull(deliveryAddress);
        boolean hasBillingAddress = !Objects.isNull(billingAddress);
-       boolean hasEmail = !Objects.isNull(email);
 
         StringBuilder queryBuilder = new StringBuilder("SELECT * FROM package WHERE 1 = 1");
 
@@ -159,9 +157,6 @@ public class PackageService {
             queryBuilder.append(" AND billing_address LIKE '").append(billingAddress).append("%'");
         }
 
-        if (hasEmail) {
-            queryBuilder.append(" AND email = '").append(email).append("'");
-        }
 
         String query = queryBuilder.toString();
 
