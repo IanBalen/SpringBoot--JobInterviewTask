@@ -1,7 +1,7 @@
 package com.example.springbootpackageapi.controllers;
 
 import com.example.springbootpackageapi.services.CustomerService;
-import com.example.springbootpackageapi.services.requests.CustomerRequest;
+import com.example.springbootpackageapi.services.requests.CreateCustomerRequest;
 import com.example.springbootpackageapi.services.results.ActionResult;
 import com.example.springbootpackageapi.services.results.CustomerResult;
 import com.example.springbootpackageapi.services.results.DataResult;
@@ -18,7 +18,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping("/create")
-    public ResponseEntity<ActionResult> createCustomer(@RequestBody @Valid CustomerRequest request) {
+    public ResponseEntity<ActionResult> createCustomer(@RequestBody @Valid CreateCustomerRequest request) {
         return customerService.createCustomer(request).toResponseEntity();
     }
 

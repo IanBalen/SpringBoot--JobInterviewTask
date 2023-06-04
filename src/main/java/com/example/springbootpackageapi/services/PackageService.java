@@ -8,7 +8,8 @@ import com.example.springbootpackageapi.domain.enums.Status;
 import com.example.springbootpackageapi.exception.BadRequestException;
 import com.example.springbootpackageapi.repositories.CustomerRepository;
 import com.example.springbootpackageapi.repositories.PackageRepository;
-import com.example.springbootpackageapi.services.requests.PackageRequest;
+import com.example.springbootpackageapi.services.requests.CreatePackageRequest;
+import com.example.springbootpackageapi.services.requests.UpdatePackageRequest;
 import com.example.springbootpackageapi.services.results.ActionResult;
 import com.example.springbootpackageapi.services.results.DataResult;
 import com.example.springbootpackageapi.services.results.PackageResult;
@@ -32,20 +33,10 @@ public class PackageService {
 
     private final EntityManager entityManager;
 
-    @SneakyThrows
+
     public DataResult<PackageDTO> getPackageByCodeOrId(String value) {
 
-        boolean isId = value.matches("\\d+");
-        Package pack;
-
-        if(isId) {
-            pack = packageRepository.findById(Long.parseLong(value))
-                    .orElseThrow(() -> new BadRequestException("Package Id not found"));
-        }
-        else{
-            pack = packageRepository.findByPackageCode(value)
-                    .orElseThrow(() -> new BadRequestException("Package code not found"));
-        }
+        Package pack = getPackageFromIdOrCode(value);
 
         PackageDTO packageDTO = PackageDTO
                 .builder()
@@ -77,7 +68,7 @@ public class PackageService {
     }
 
     @SneakyThrows
-    public ActionResult createPackage(PackageRequest request) {
+    public ActionResult createPackage(CreatePackageRequest request) {
 
         String uuid = UUID.randomUUID().toString();
         String code = uuid.replaceAll("-", "");
@@ -193,4 +184,66 @@ public class PackageService {
 
         return new DataResult<>(packageResult, "Packages found", HttpStatus.FOUND);
     }
+
+    @SneakyThrows
+    public ActionResult updatePackageStatus(String value, String status) {
+
+        Set<String> validStatus = Set.of("PROCESSING", "SHIPPED", "DELIVERED", "RETURNED", "CANCELED");
+
+        if(!validStatus.contains(status.toUpperCase())) {
+            throw new BadRequestException("Status can only be PROCESSING, SHIPPED, DELIVERED, RETURNED or CANCELED");
+        }
+
+        Package pack = getPackageFromIdOrCode(value);
+        pack.setOrderStatus(Status.valueOf(status.toUpperCase()));
+        packageRepository.save(pack);
+
+        return new ActionResult("Package status updated", HttpStatus.OK);
+    }
+
+
+    @SneakyThrows
+    public ActionResult updatePackage(String value, UpdatePackageRequest request) {
+
+        Package pack = getPackageFromIdOrCode(value);
+
+        if(!Objects.isNull(request.getBillingAddress())) {
+            pack.setBillingAddress(request.getBillingAddress());
+        }
+
+        if(!Objects.isNull(request.getDeliveryAddress())) {
+            pack.setDeliveryAddress(request.getDeliveryAddress());
+        }
+
+        if(!Objects.isNull(request.getEmail())) {
+            Customer customer = pack.getCustomer();
+            customer.setEmail(request.getEmail());
+            customerRepository.save(customer);
+            pack.setCustomer(customer);
+        }
+
+        packageRepository.save(pack);
+
+        return new ActionResult("Package address updated", HttpStatus.ACCEPTED);
+    }
+
+
+
+
+    @SneakyThrows
+    private Package getPackageFromIdOrCode(String value) {
+        boolean isId = value.matches("\\d+");
+        Package pack;
+
+        if(isId) {
+            pack = packageRepository.findById(Long.parseLong(value))
+                    .orElseThrow(() -> new BadRequestException("Package id not found"));
+        }
+        else{
+            pack = packageRepository.findByPackageCode(value)
+                    .orElseThrow(() -> new BadRequestException("Package code not found"));
+        }
+        return pack;
+    }
+
 }

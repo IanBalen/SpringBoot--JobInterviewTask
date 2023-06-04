@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 @ValidCustomerRequest
-public class CustomerRequest {
+public class CreateCustomerRequest {
 
     private String firstName;
     private String lastName;

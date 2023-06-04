@@ -1,29 +1,36 @@
 package com.example.springbootpackageapi.services.validation;
 
-import com.example.springbootpackageapi.services.requests.PackageRequest;
+import com.example.springbootpackageapi.services.requests.UpdatePackageRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class PackageRequestValidator implements ConstraintValidator<ValidPackageRequest, PackageRequest> {
+public class UpdatePackageRequestValidator implements ConstraintValidator<ValidPackageUpdateRequest, UpdatePackageRequest> {
 
-    String addressMessage;
-    String emailMessage;
-
+    private String addressMessage;
+    private String emailMessage;
+    private String missingFieldsMessage;
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" +
             "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$";
 
     private static final String ADDRESS_PATTERN = "^[a-zA-ZčćđžšČĆĐŽŠ0-9\\s]+$";
-
     @Override
-    public void initialize(ValidPackageRequest constraintAnnotation) {
-        addressMessage = constraintAnnotation.addressMessage();
+    public void initialize(ValidPackageUpdateRequest constraintAnnotation) {
         emailMessage = constraintAnnotation.emailMessage();
+        addressMessage = constraintAnnotation.addressMessage();
+        missingFieldsMessage = constraintAnnotation.missingFieldsMessage();
     }
 
     @Override
-    public boolean isValid(PackageRequest request, ConstraintValidatorContext context) {
+    public boolean isValid(UpdatePackageRequest request, ConstraintValidatorContext context) {
 
         boolean valid = true;
+
+        if(request.getDeliveryAddress() == null && request.getBillingAddress() == null && request.getEmail() == null){
+            context.buildConstraintViolationWithTemplate(missingFieldsMessage)
+                    .addPropertyNode("deliveryAddress")
+                    .addConstraintViolation();
+            valid = false;
+        }
 
         if (request.getDeliveryAddress() != null && !request.getDeliveryAddress().matches(ADDRESS_PATTERN)) {
             context.buildConstraintViolationWithTemplate(addressMessage)
@@ -47,6 +54,5 @@ public class PackageRequestValidator implements ConstraintValidator<ValidPackage
         }
 
         return valid;
-
     }
 }

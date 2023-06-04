@@ -11,16 +11,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target(TYPE)
 @Retention(RUNTIME)
-@Constraint(validatedBy = CreateCustomerRequestValidator.class)
-public @interface ValidCustomerRequest {
+@Constraint(validatedBy = UpdatePackageRequestValidator.class)
+public @interface ValidPackageUpdateRequest {
 
-    String message() default "Invalid create customer request.";
+    String message() default "Invalid update package request.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-
-    String firstNameMessage() default "First name can only contain letters.";
-    String lastNameMessage() default "Last name can only contain letters.";
+    String missingFieldsMessage() default "At least one variable must be present.";
     String addressMessage() default "Address can only contain letters, numbers, and spaces.";
     String emailMessage() default "Email must be a valid email address.";
+
 
 }

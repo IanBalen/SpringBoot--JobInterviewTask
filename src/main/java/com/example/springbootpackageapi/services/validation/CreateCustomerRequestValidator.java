@@ -1,15 +1,15 @@
 package com.example.springbootpackageapi.services.validation;
 
-import com.example.springbootpackageapi.services.requests.CustomerRequest;
+import com.example.springbootpackageapi.services.requests.CreateCustomerRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class CustomerRequestValidator implements ConstraintValidator<ValidCustomerRequest, CustomerRequest> {
+public class CreateCustomerRequestValidator implements ConstraintValidator<ValidCustomerRequest, CreateCustomerRequest> {
 
-    String firstNameMessage;
-    String lastNameMessage;
-    String addressMessage;
-    String emailMessage;
+    private String firstNameMessage;
+    private String lastNameMessage;
+    private String addressMessage;
+    private String emailMessage;
 
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" +
             "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$";
@@ -27,7 +27,7 @@ public class CustomerRequestValidator implements ConstraintValidator<ValidCustom
     }
 
     @Override
-    public boolean isValid(CustomerRequest request, ConstraintValidatorContext context) {
+    public boolean isValid(CreateCustomerRequest request, ConstraintValidatorContext context) {
 
         boolean valid = true;
 

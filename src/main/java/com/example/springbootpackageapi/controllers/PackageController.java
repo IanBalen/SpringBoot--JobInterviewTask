@@ -2,7 +2,8 @@ package com.example.springbootpackageapi.controllers;
 
 import com.example.springbootpackageapi.domain.DTOs.PackageDTO;
 import com.example.springbootpackageapi.services.PackageService;
-import com.example.springbootpackageapi.services.requests.PackageRequest;
+import com.example.springbootpackageapi.services.requests.CreatePackageRequest;
+import com.example.springbootpackageapi.services.requests.UpdatePackageRequest;
 import com.example.springbootpackageapi.services.results.ActionResult;
 import com.example.springbootpackageapi.services.results.DataResult;
 import com.example.springbootpackageapi.services.results.PackageResult;
@@ -17,6 +18,19 @@ import org.springframework.web.bind.annotation.*;
 public class PackageController {
 
     private final PackageService packageService;
+
+    @PutMapping ("/updateStatus/{value}")
+    public ResponseEntity<ActionResult> updatePackageStatus(@PathVariable String value,
+                                                            @RequestParam String status) {
+        return packageService.updatePackageStatus(value, status).toResponseEntity();
+    }
+
+    @PutMapping("/updatePackage/{value}")
+    public ResponseEntity<ActionResult> updatePackage(@PathVariable String value,
+                                                             @RequestBody @Valid UpdatePackageRequest request
+    ) {
+        return packageService.updatePackage(value, request).toResponseEntity();
+    }
 
     @GetMapping("/{value}")
     public ResponseEntity<DataResult<PackageDTO>> getPackageById(@PathVariable String value) {
@@ -49,7 +63,7 @@ public class PackageController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ActionResult> createPackage(@RequestBody @Valid PackageRequest request) {
+    public ResponseEntity<ActionResult> createPackage(@RequestBody @Valid CreatePackageRequest request) {
         return packageService.createPackage(request).toResponseEntity();
     }
 

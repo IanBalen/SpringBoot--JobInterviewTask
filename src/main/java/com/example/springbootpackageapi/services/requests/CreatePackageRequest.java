@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 @ValidPackageRequest
-public class PackageRequest {
+public class CreatePackageRequest {
 
     private String name;
     private String email;

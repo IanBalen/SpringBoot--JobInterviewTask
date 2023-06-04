@@ -3,7 +3,7 @@ package com.example.springbootpackageapi.services;
 import com.example.springbootpackageapi.domain.Customer;
 import com.example.springbootpackageapi.domain.DTOs.CustomerDTO;
 import com.example.springbootpackageapi.repositories.CustomerRepository;
-import com.example.springbootpackageapi.services.requests.CustomerRequest;
+import com.example.springbootpackageapi.services.requests.CreateCustomerRequest;
 import com.example.springbootpackageapi.services.results.ActionResult;
 import com.example.springbootpackageapi.services.results.CustomerResult;
 import com.example.springbootpackageapi.services.results.DataResult;
@@ -20,7 +20,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public ActionResult createCustomer(CustomerRequest request) {
+    public ActionResult createCustomer(CreateCustomerRequest request) {
 
         Customer customer = Customer
                 .builder()
