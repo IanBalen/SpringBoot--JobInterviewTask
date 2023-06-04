@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerResult {
 
+    // Nije potreban no kod controllera je čitljiviji ako se koristi
     private List<CustomerDTO> customers;
 
 }

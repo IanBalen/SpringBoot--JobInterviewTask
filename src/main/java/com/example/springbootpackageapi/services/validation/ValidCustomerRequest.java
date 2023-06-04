@@ -14,6 +14,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = CreateCustomerRequestValidator.class)
 public @interface ValidCustomerRequest {
 
+    // Anotacija sa porukama koja se koristi u validatoru tako da te poruke na kraju završe kao ispis
+    // ako se jedna od njih ne zadovolji
+
     String message() default "Invalid create customer request.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

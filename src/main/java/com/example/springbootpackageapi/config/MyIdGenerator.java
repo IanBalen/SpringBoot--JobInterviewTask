@@ -15,6 +15,9 @@ import java.util.Map;
 
 public class MyIdGenerator implements IdentifierGenerator, ApplicationContextAware {
 
+    // MyIdGenerator je custom generator koji sam napisao kako ne bih imao koalizije sa import.sql
+    // U import.sql je mock data koja služi da se može lakše testirati aplikacija te daje dobar pregled kako bi izgledalo
+
     private ApplicationContext applicationContext;
     private final Map<String, Long> lastGeneratedIds = new HashMap<>();
 
@@ -23,6 +26,10 @@ public class MyIdGenerator implements IdentifierGenerator, ApplicationContextAwa
         this.applicationContext = applicationContext;
     }
 
+
+    // lastGeneratedIds je mapa koja sadrži ime klase i zadnji generirani id za tu klasu
+    // Kada se prvi puta pozove pogleda se u bazu te nakon toga se ne gleda više nego se samo povećava za 1
+    // Razlog iza mape je da se ne mora svaki puta gledati u bazu nego se samo povećava za 1
     @SneakyThrows
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {

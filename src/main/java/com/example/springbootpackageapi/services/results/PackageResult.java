@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PackageResult {
 
+    // Nije potreban no kod controllera je čitljiviji ako se koristi
     private List<PackageDTO> packages;
 
 }

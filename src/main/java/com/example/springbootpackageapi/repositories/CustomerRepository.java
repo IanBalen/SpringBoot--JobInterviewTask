@@ -12,6 +12,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     Optional<Customer> findByEmail(String email);
 
+    // Koristi ga MyIdGenerator kod prvog kreiranja Customer-a
     @Query(value = "SELECT MAX(id) FROM Customer", nativeQuery = true)
     Long findByMaxId();
 

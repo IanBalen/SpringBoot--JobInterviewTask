@@ -18,6 +18,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomerService {
 
+    // U servisu ako se vracaju podaci vracaju se DTO objekti, ovdje nam mozda i nisu toliko potrebni,
+    // no mislim da je to dobra praksa
+
     private final CustomerRepository customerRepository;
 
     public ActionResult createCustomer(CreateCustomerRequest request) {

@@ -14,6 +14,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = UpdatePackageRequestValidator.class)
 public @interface ValidPackageUpdateRequest {
 
+    // Anotacija sa porukama koja se koristi u validatoru tako da te poruke na kraju završe kao ispis
+    // ako se jedna od njih ne zadovolji
     String message() default "Invalid update package request.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

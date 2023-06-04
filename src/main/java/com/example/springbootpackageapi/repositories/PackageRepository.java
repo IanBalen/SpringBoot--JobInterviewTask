@@ -12,6 +12,7 @@ public interface PackageRepository extends JpaRepository<Package, Long> {
 
     Optional<Package> findByPackageCode(String packageCode);
 
+    // Koristi ga MyIdGenerator kod prvog kreiranja Package-a
     @Query(value = "SELECT MAX(id) FROM Package", nativeQuery = true)
     Long findByMaxId();
 

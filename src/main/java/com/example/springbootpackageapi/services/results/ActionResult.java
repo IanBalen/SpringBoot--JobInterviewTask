@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 @NoArgsConstructor
 public class ActionResult {
 
+    // Action Result sam koristio kako bi se uvijek kod odgovora na zahtjev vratio i status i poruka
+    // ukoliko zahtjev ne traži da se vrate neki podaci
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
     @JsonIgnore

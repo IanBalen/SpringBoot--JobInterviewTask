@@ -15,7 +15,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class Package {
-
+    // Razlog koristenja vlastitog generatora je objasnjenje u klasi MyIdGenerator
+    // Zbog ideje zadatka sam uz id stavio i packageCode
+    // Ideja iza toga je da inače kada se dobiva paket, dobijemo neki kod preko kojeg ga korisnici mogu pratiti
+    // On je jedinstven za svaki paket i ne ponavlja se
     @Id
     @GeneratedValue(generator = "MyIdGenerator")
     @GenericGenerator(name = "MyIdGenerator", strategy = "com.example.springbootpackageapi.config.MyIdGenerator")

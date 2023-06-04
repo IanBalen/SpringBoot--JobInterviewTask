@@ -33,6 +33,8 @@ public class PackageService {
 
     private final EntityManager entityManager;
 
+    // U servisu ako se vracaju podaci vracaju se DTO objekti, ovdje nam mozda i nisu toliko potrebni,
+    // no mislim da je to dobra praksa
 
     public DataResult<PackageDTO> getPackageByCodeOrId(String value) {
 
@@ -67,6 +69,8 @@ public class PackageService {
 
     }
 
+    // Zamislio sam da je code generiran randomUUID-om te sam stime htio napraviti "real-life" slučaj
+    // kada u paketi imaju svoje kodove pomoću kojih se može dobiti informacije o njima
     @SneakyThrows
     public ActionResult createPackage(CreatePackageRequest request) {
 
@@ -98,6 +102,8 @@ public class PackageService {
         return new ActionResult("Package created", HttpStatus.CREATED);
     }
 
+    // Ova metoda se mogla implementirati na više načina
+    // Ova metoda nije baš skalibilna, ali je dosta fleksibilna jer se može korisiti bilo koja kombinacija parametara
     public DataResult<PackageResult> getPackages(String name,
                                                  String orderStatus,
                                                  String orderDateFrom,
@@ -185,6 +191,7 @@ public class PackageService {
         return new DataResult<>(packageResult, "Packages found", HttpStatus.FOUND);
     }
 
+    // Ova metoda je zamišljena samo za administratora i za radnike da promjene status paketa
     @SneakyThrows
     public ActionResult updatePackageStatus(String value, String status) {
 
@@ -202,6 +209,7 @@ public class PackageService {
     }
 
 
+    // Ova metoda je zamišljena samo za kupca da promijeni adresu paketa i/ili email
     @SneakyThrows
     public ActionResult updatePackage(String value, UpdatePackageRequest request) {
 
@@ -229,7 +237,9 @@ public class PackageService {
 
 
 
-
+    // Kako sam zamislio da se paket jedinstveno moze dobiti pomocu koda paketa ili id-a paketa
+    // tako sam i napravio metodu koja prima String value i provjerava da li je value id ili kod paketa
+    // id ce uvijek biti samo broj, a kod paketa ce biti string od 10 karaktera koji se sastoji od brojeva i slova
     @SneakyThrows
     private Package getPackageFromIdOrCode(String value) {
         boolean isId = value.matches("\\d+");

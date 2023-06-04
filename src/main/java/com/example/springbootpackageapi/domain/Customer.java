@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class Customer {
-
+    // Razlog koristenja vlastitog generatora je objasnjenje u klasi MyIdGenerator
     @Id
     @GeneratedValue(generator = "MyIdGenerator")
     @GenericGenerator(name = "MyIdGenerator", strategy = "com.example.springbootpackageapi.config.MyIdGenerator")
@@ -34,5 +34,6 @@ public class Customer {
             inverseJoinColumns = @JoinColumn(name = "package_id")
     )
     private List<Package> packages;
-
+    // Stavio sam OneToMany jer mi je intuitivno bilo da jedan customer moze imati vise paketa
+    // a da jedan paket moze imati samo jednog customera
 }
