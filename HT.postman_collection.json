@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "bc341b2b-bf6d-4195-be8a-1ec00a6c1ed9",
+		"name": "HT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23939519"
+	},
+	"item": [
+		{
+			"name": "Get customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create customer #1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"Milorad\",\r\n    \"lastName\" : \"Stjepanovic\",\r\n    \"email\": \"stjepanovic1milorad@gmail.com\",\r\n    \"address\" : \"Belvedere 21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer #2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"Stevio\",\r\n    \"lastName\" : \"Martinović\",\r\n    \"email\": \"stevko.martinko@gmail.com\",\r\n    \"address\" : \"Glavani 68\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get package",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/packages/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"packages",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get packages with attr",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/packages?orderDate=2023-05-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"packages"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Google Pixel 7",
+							"disabled": true
+						},
+						{
+							"key": "orderDate",
+							"value": "2023-05-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Package #1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Iphone 8S\",\r\n    \"billingAddress\" : \"Zdravka Kučića 11\",\r\n    \"deliveryAddress\" : \"Zdravka Kučića 11\",\r\n    \"email\" : \"ivan.ivanic@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/packages/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"packages",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create package #2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Huawei p30\",\r\n    \"billingAddress\" : \"Ivana Matrljana 22\",\r\n    \"deliveryAddress\" : \"Trg Republike Hrvatske 3\",\r\n    \"email\" : \"stjepanovic1milorad@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/packages/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"packages",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update order status on package",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/packages/updateStatus/1?status=processing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"packages",
+						"updateStatus",
+						"1"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "processing"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update package fields",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"billingAddress\" : \"Veslačka 8\",\r\n    \"deliveryAddress\" : \"Slogin Kula 10\",\r\n    \"email\" : \"novi.mail@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/packages/updatePackage/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"packages",
+						"updatePackage",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
