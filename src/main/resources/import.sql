@@ -1,0 +1,70 @@
+INSERT INTO customer VALUES (1, 'Lastovska 23', 'ivan.ivanic@gmail.com', 'Ivan', 'Ivanic');
+INSERT INTO customer VALUES (2, 'Zagrebačka 71', 'marina.finic12@yahoo.com', 'Marina', 'Finic');
+INSERT INTO customer VALUES (3, 'Kneza Branimira 12', 'stjepan.radic007@gmail.com', 'Stjepan', 'Radic');
+INSERT INTO customer VALUES (4, 'Riječka ulica 89', 'silvanastanic@yahoo.com', 'Silvana', 'Stanic');
+INSERT INTO customer VALUES (5, 'Zagrebačka ulica 45', 'ivanmarkovic@gmail.com', 'Ivan', 'Marković');
+INSERT INTO customer VALUES (6, 'Splitska 22', 'anapetrovic@hotmail.com', 'Ana', 'Petrović');
+INSERT INTO customer VALUES (7, 'Dubrovačka 10', 'mariomaric@gmail.com', 'Mario', 'Marić');
+INSERT INTO customer VALUES (8, 'Osječka 17', 'tanjamarkovic@yahoo.com', 'Tanja', 'Marković');
+INSERT INTO customer VALUES (9, 'Riječka ulica 12', 'mirkopetrovic@gmail.com', 'Mirko', 'Petrović');
+INSERT INTO customer VALUES (10, 'Zagrebačka ulica 33', 'ivonamatic@hotmail.com', 'Ivona', 'Matić');
+INSERT INTO customer VALUES (11, 'Splitska 8', 'anteantunovic@gmail.com', 'Ante', 'Antunović');
+INSERT INTO customer VALUES (12, 'Dubrovačka 15', 'tomislavtomljanovic@yahoo.com', 'Tomislav', 'Tomljanović');
+INSERT INTO customer VALUES (13, 'Osječka 29', 'martinaivankovic@gmail.com', 'Martina', 'Ivanković');
+INSERT INTO customer VALUES (14, 'Riječka ulica 7', 'marinpetrovic@hotmail.com', 'Marin', 'Petrović');
+INSERT INTO customer VALUES (15, 'Zagrebačka ulica 55', 'kristinakovac@gmail.com', 'Kristina', 'Kovač');
+INSERT INTO customer VALUES (16, 'Splitska 3', 'stjepantadic@hotmail.com', 'Stjepan', 'Tadić');
+
+
+
+INSERT INTO package VALUES (1, 'Zagrebačka 71', 'Riječka ulica 89', '2023-06-05', 'iPhone 12', '2023-08-01', 'PROCESSING', 'b2e5d4a9c1');
+INSERT INTO package VALUES (2, 'Riječka ulica 89', 'Riječka ulica 89', '2023-06-15', 'Google Pixel 7', '2023-05-31', 'SHIPPED', 'cwe98e8cm2');
+INSERT INTO package VALUES (3, 'Kneza Branimira 12', 'Zagrebačka 71', '2023-05-16', 'Samsung Galaxy S20', '2023-05-11', 'DELIVERED', 'd2e5d4a9c1');
+INSERT INTO package VALUES (4, 'Lastovska 23', 'Kneza Branimira 12', '2023-06-06', 'Huawei Mate 50 Pro', '2023-05-31', 'PROCESSING', 'e2e58laq5z');
+INSERT INTO package VALUES (5, 'Trg bana Jelačića 10', 'Ilica 20', '2023-06-07', 'Samsung Galaxy S21', '2023-06-01', 'SHIPPED', 'z8pg4fx7s6');
+INSERT INTO package VALUES (6, 'Frankopanska 5', 'Vlaška ulica 15', '2023-06-08', 'iPhone 13 Pro', '2023-06-02', 'DELIVERED', 'k2m6yz9atx');
+INSERT INTO package VALUES (7, 'Gundulićeva 3', 'Palmotićeva 8', '2023-06-09', 'Google Pixel 6', '2023-06-03', 'CANCELED', 'q4c7y5j2db');
+INSERT INTO package VALUES (8, 'Heinzelova 33', 'Miramarska 55', '2023-06-10', 'OnePlus 9 Pro', '2023-06-04', 'RETURNED', 'e7h2wj3tfk');
+INSERT INTO package VALUES (9, 'Maksimirska 18', 'Ilica 77', '2023-06-11', 'Xiaomi Mi 12', '2023-06-05', 'PROCESSING', 'n9r5bm4v8q');
+INSERT INTO package VALUES (10, 'Trg Petra Preradovića 2', 'Savska 12', '2023-06-12', 'Sony Xperia 1 III', '2023-06-06', 'PROCESSING', 'g3d5kp6mnq');
+INSERT INTO package VALUES (11, 'Kneza Mislava 8', 'Trg Ante Starčevića 6', '2023-06-13', 'LG Velvet 2 Pro', '2023-06-07', 'PROCESSING', 'y9t4db5f7z');
+INSERT INTO package VALUES (12, 'Savska cesta 28', 'Ilica 35', '2023-06-14', 'Motorola Edge Plus', '2023-06-08', 'PROCESSING', 'p3g7tn5x8k');
+INSERT INTO package VALUES (13, 'Petrinjska 2', 'Kopernikova 9', '2023-06-15', 'Nokia 9.3 PureView', '2023-06-09', 'PROCESSING', 's5z8fd1m6x');
+INSERT INTO package VALUES (14, 'Gajeva 15', 'Martićeva 3', '2023-06-16', 'Huawei P50 Pro', '2023-06-10', 'PROCESSING', 'q2h4w7y9df');
+INSERT INTO package VALUES (15, 'Trg žrtava fašizma 11', 'Hebrangova 25', '2023-06-17', 'Samsung Galaxy Note 21', '2023-06-11', 'PROCESSING', 'u5z1xn6g3r');
+INSERT INTO package VALUES (16, 'Opatička 8', 'Savska 2', '2023-06-18', 'iPhone SE (2022)', '2023-06-12', 'SHIPPED', 'v6f1sh9n4x');
+INSERT INTO package VALUES (17, 'Zagrebačka avenija 19', 'Trg Stjepana Radića 7', '2023-06-19', 'Google Pixel 5a', '2023-06-13', 'DELIVERED', 'j9b4q5z2hg');
+INSERT INTO package VALUES (18, 'Vlaška ulica 22', 'Maksimirska 45', '2023-06-20', 'OnePlus 9', '2023-06-14', 'CANCELED', 'l8t5np2x6z');
+INSERT INTO package VALUES (19, 'Palmotićeva 10', 'Frankopanska 7', '2023-06-21', 'Xiaomi Mi 11 Ultra', '2023-06-15', 'RETURNED', 'c3q5rf7j2z');
+INSERT INTO package VALUES (20, 'Miramarska 38', 'Heinzelova 12', '2023-06-22', 'Sony Xperia 5 III', '2023-06-16', 'PROCESSING', 'a6g3kp5s8m');
+INSERT INTO package VALUES (21, 'Ilica 25', 'Trg Petra Preradovića 4', '2023-06-23', 'LG Wing', '2023-06-17', 'PROCESSING', 'r9x5m6f2nq');
+INSERT INTO package VALUES (22, 'Trg Ante Starčevića 10', 'Kneza Mislava 6', '2023-06-24', 'Motorola Razr 5G', '2023-06-18', 'PROCESSING', 'b2d4w5z6q7');
+INSERT INTO package VALUES (23, 'Ilica 40', 'Savska cesta 30', '2023-06-25', 'Nokia 8.3 5G', '2023-06-19', 'PROCESSING', 'y6m3t7h4jw');
+INSERT INTO package VALUES (24, 'Kopernikova 12', 'Petrinjska 4', '2023-06-26', 'Samsung Galaxy Z Fold3', '2023-06-20', 'PROCESSING', 'g7t5bk3fxr');
+
+
+
+INSERT INTO customer_package VALUES (1, 1);
+INSERT INTO customer_package VALUES (2, 2);
+INSERT INTO customer_package VALUES (3, 3);
+INSERT INTO customer_package VALUES (4, 4);
+INSERT INTO customer_package VALUES (5, 5);
+INSERT INTO customer_package VALUES (6, 6);
+INSERT INTO customer_package VALUES (7, 7);
+INSERT INTO customer_package VALUES (8, 8);
+INSERT INTO customer_package VALUES (9, 9);
+INSERT INTO customer_package VALUES (10, 10);
+INSERT INTO customer_package VALUES (11, 11);
+INSERT INTO customer_package VALUES (12, 12);
+INSERT INTO customer_package VALUES (13, 13);
+INSERT INTO customer_package VALUES (14, 14);
+INSERT INTO customer_package VALUES (15, 15);
+INSERT INTO customer_package VALUES (16, 16);
+INSERT INTO customer_package VALUES (1, 17);
+INSERT INTO customer_package VALUES (2, 18);
+INSERT INTO customer_package VALUES (3, 19);
+INSERT INTO customer_package VALUES (4, 20);
+INSERT INTO customer_package VALUES (5, 21);
+INSERT INTO customer_package VALUES (6, 22);
+INSERT INTO customer_package VALUES (7, 23);
+INSERT INTO customer_package VALUES (8, 24);
